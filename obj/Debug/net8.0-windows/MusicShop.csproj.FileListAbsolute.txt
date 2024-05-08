@@ -44,3 +44,5 @@ C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.W
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.WalletUser.resources
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.DetailsAdmin.resources
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.DetailsUser.resources
+C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.sourcelink.json
+C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.InsertProduct.resources

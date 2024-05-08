@@ -81,6 +81,7 @@
             panel7 = new Panel();
             Odjava = new Button();
             iznos_novcanika = new Label();
+            InstrumentiPanel = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -99,8 +100,8 @@
             // treeView1
             // 
             treeView1.BackColor = Color.AntiqueWhite;
-            treeView1.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            treeView1.Location = new Point(22, 110);
+            treeView1.Font = new Font("Gabriola", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            treeView1.Location = new Point(20, 165);
             treeView1.Name = "treeView1";
             treeNode1.Name = "akusticne";
             treeNode1.Text = "Akustične gitare";
@@ -162,7 +163,7 @@
             treeNode29.Text = "Razna oprema";
             treeView1.Nodes.AddRange(new TreeNode[] { treeNode24, treeNode29 });
             treeView1.ShowLines = false;
-            treeView1.Size = new Size(292, 511);
+            treeView1.Size = new Size(332, 551);
             treeView1.TabIndex = 20;
             // 
             // label2
@@ -182,7 +183,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Sienna;
-            pictureBox2.Location = new Point(-2, -3);
+            pictureBox2.Location = new Point(-2, -4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(1202, 78);
             pictureBox2.TabIndex = 17;
@@ -205,7 +206,7 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Sienna;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(982, 23);
+            pictureBox1.Location = new Point(982, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(30, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -234,12 +235,12 @@
             flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Controls.Add(panel7);
-            flowLayoutPanel1.Location = new Point(666, 10);
+            flowLayoutPanel1.Location = new Point(666, 9);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.MaximumSize = new Size(260, 455);
             flowLayoutPanel1.MinimumSize = new Size(260, 60);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(260, 455);
+            flowLayoutPanel1.Size = new Size(260, 60);
             flowLayoutPanel1.TabIndex = 26;
             // 
             // panel1
@@ -354,8 +355,9 @@
             Proizvodi.Name = "Proizvodi";
             Proizvodi.Size = new Size(280, 82);
             Proizvodi.TabIndex = 27;
-            Proizvodi.Text = "Proizvodi";
+            Proizvodi.Text = "Dodaj proizvod";
             Proizvodi.UseVisualStyleBackColor = true;
+            Proizvodi.Click += Proizvodi_Click;
             // 
             // panel6
             // 
@@ -411,11 +413,20 @@
             iznos_novcanika.Size = new Size(0, 55);
             iznos_novcanika.TabIndex = 27;
             // 
+            // InstrumentiPanel
+            // 
+            InstrumentiPanel.BackgroundImageLayout = ImageLayout.None;
+            InstrumentiPanel.Location = new Point(373, 165);
+            InstrumentiPanel.Name = "InstrumentiPanel";
+            InstrumentiPanel.Size = new Size(799, 551);
+            InstrumentiPanel.TabIndex = 28;
+            // 
             // HomeAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 750);
+            Controls.Add(InstrumentiPanel);
             Controls.Add(iznos_novcanika);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox3);
@@ -472,5 +483,6 @@
         private Button Odjava;
         private PictureBox pictureBox5;
         private Label iznos_novcanika;
+        private FlowLayoutPanel InstrumentiPanel;
     }
 }

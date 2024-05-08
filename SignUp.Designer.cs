@@ -58,6 +58,7 @@
             PrikaziLozinku.TabIndex = 14;
             PrikaziLozinku.Text = "Prikaži lozinku";
             PrikaziLozinku.UseVisualStyleBackColor = true;
+            PrikaziLozinku.CheckedChanged += PrikaziLozinku_CheckedChanged_1;
             // 
             // TextBoxLozinkaPotvrda
             // 

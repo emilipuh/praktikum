@@ -145,11 +145,12 @@ namespace MusicShop
             home.Show();
         }
 
-        private void PrikaziLozinku_CheckedChanged(object sender, EventArgs e)
+
+        private void PrikaziLozinku_CheckedChanged_1(object sender, EventArgs e)
         {
+
             TextBoxLozinka.UseSystemPasswordChar = !PrikaziLozinku.Checked;
             TextBoxLozinkaPotvrda.UseSystemPasswordChar = !PrikaziLozinku.Checked;
         }
-
     }
 }
