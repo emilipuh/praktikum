@@ -46,3 +46,5 @@ C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.D
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.DetailsUser.resources
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.sourcelink.json
 C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.InsertProduct.resources
+C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.Products.resources
+C:\Users\emili\Desktop\rp-projekt\MusicShop\obj\Debug\net8.0-windows\MusicShop.EditInstrumentData.resources

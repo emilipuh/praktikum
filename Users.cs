@@ -147,6 +147,10 @@ namespace MusicShop
             }
         }
 
+        private void PrikazKorisnika_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

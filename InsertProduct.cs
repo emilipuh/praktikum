@@ -26,8 +26,8 @@ namespace MusicShop
 
         private void Ponisti_Click(object sender, EventArgs e)
         {
-            HomeAdmin homeAdmin = new(loggedInAdminUsername, loggedInAdminFirstName);
-            homeAdmin.Show();
+            Products products = new(loggedInAdminUsername, loggedInAdminFirstName);
+            products.Show();
             this.Close();
         }
 
@@ -58,8 +58,8 @@ namespace MusicShop
                     {
                         MessageBox.Show("Proizvod je uspješno dodan!");
                         mySqlConnection.Close();
-                        HomeAdmin home = new(loggedInAdminUsername, loggedInAdminFirstName);
-                        home.Show();
+                        Products products = new(loggedInAdminUsername, loggedInAdminFirstName);
+                        products.Show();
                         this.Close();
                     }
                     else

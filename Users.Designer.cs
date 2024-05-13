@@ -47,6 +47,7 @@
             PrikazKorisnika.RowHeadersWidth = 51;
             PrikazKorisnika.Size = new Size(553, 462);
             PrikazKorisnika.TabIndex = 0;
+            PrikazKorisnika.CellContentClick += PrikazKorisnika_CellContentClick;
             // 
             // label1
             // 

@@ -57,6 +57,7 @@
             TreeNode treeNode27 = new TreeNode("Koferi i torbe za klavijature");
             TreeNode treeNode28 = new TreeNode("Koferi i torbe za harmonike");
             TreeNode treeNode29 = new TreeNode("Razna oprema", new TreeNode[] { treeNode25, treeNode26, treeNode27, treeNode28 });
+            TreeNode treeNode30 = new TreeNode("Svi proizvodi");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeAdmin));
             treeView1 = new TreeView();
             label2 = new Label();
@@ -82,6 +83,8 @@
             Odjava = new Button();
             iznos_novcanika = new Label();
             InstrumentiPanel = new FlowLayoutPanel();
+            FilterComboBox = new ComboBox();
+            UkloniFilter = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -101,7 +104,7 @@
             // 
             treeView1.BackColor = Color.AntiqueWhite;
             treeView1.Font = new Font("Gabriola", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            treeView1.Location = new Point(20, 165);
+            treeView1.Location = new Point(20, 180);
             treeView1.Name = "treeView1";
             treeNode1.Name = "akusticne";
             treeNode1.Text = "Akustične gitare";
@@ -161,10 +164,13 @@
             treeNode28.Text = "Koferi i torbe za harmonike";
             treeNode29.Name = "razna_oprema";
             treeNode29.Text = "Razna oprema";
-            treeView1.Nodes.AddRange(new TreeNode[] { treeNode24, treeNode29 });
+            treeNode30.Name = "sve";
+            treeNode30.Text = "Svi proizvodi";
+            treeView1.Nodes.AddRange(new TreeNode[] { treeNode24, treeNode29, treeNode30 });
             treeView1.ShowLines = false;
-            treeView1.Size = new Size(332, 551);
+            treeView1.Size = new Size(332, 536);
             treeView1.TabIndex = 20;
+            treeView1.AfterSelect += treeView1_AfterSelect;
             // 
             // label2
             // 
@@ -355,7 +361,7 @@
             Proizvodi.Name = "Proizvodi";
             Proizvodi.Size = new Size(280, 82);
             Proizvodi.TabIndex = 27;
-            Proizvodi.Text = "Dodaj proizvod";
+            Proizvodi.Text = "Pregled proizvoda";
             Proizvodi.UseVisualStyleBackColor = true;
             Proizvodi.Click += Proizvodi_Click;
             // 
@@ -415,20 +421,47 @@
             // 
             // InstrumentiPanel
             // 
+            InstrumentiPanel.BackColor = SystemColors.Control;
             InstrumentiPanel.BackgroundImageLayout = ImageLayout.None;
-            InstrumentiPanel.Location = new Point(373, 165);
+            InstrumentiPanel.Location = new Point(373, 114);
             InstrumentiPanel.Name = "InstrumentiPanel";
-            InstrumentiPanel.Size = new Size(799, 551);
-            InstrumentiPanel.TabIndex = 28;
+            InstrumentiPanel.Size = new Size(799, 602);
+            InstrumentiPanel.TabIndex = 30;
+            InstrumentiPanel.Paint += InstrumentiPanel_Paint;
+            // 
+            // FilterComboBox
+            // 
+            FilterComboBox.Font = new Font("Gabriola", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            FilterComboBox.FormattingEnabled = true;
+            FilterComboBox.Items.AddRange(new object[] { "Po najnižoj cijeni", "Po najvišoj cijeni" });
+            FilterComboBox.Location = new Point(20, 114);
+            FilterComboBox.Name = "FilterComboBox";
+            FilterComboBox.Size = new Size(198, 45);
+            FilterComboBox.TabIndex = 31;
+            FilterComboBox.Text = "Sortiraj prema cijeni";
+            FilterComboBox.SelectedIndexChanged += FilterComboBox_SelectedIndexChanged;
+            // 
+            // UkloniFilter
+            // 
+            UkloniFilter.Font = new Font("Gabriola", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            UkloniFilter.Location = new Point(224, 114);
+            UkloniFilter.Name = "UkloniFilter";
+            UkloniFilter.Size = new Size(128, 45);
+            UkloniFilter.TabIndex = 32;
+            UkloniFilter.Text = "Ukloni filter";
+            UkloniFilter.UseVisualStyleBackColor = true;
+            UkloniFilter.Click += UkloniFilter_Click;
             // 
             // HomeAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 750);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(UkloniFilter);
+            Controls.Add(FilterComboBox);
             Controls.Add(InstrumentiPanel);
             Controls.Add(iznos_novcanika);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
             Controls.Add(treeView1);
@@ -484,5 +517,7 @@
         private PictureBox pictureBox5;
         private Label iznos_novcanika;
         private FlowLayoutPanel InstrumentiPanel;
+        private ComboBox FilterComboBox;
+        private Button UkloniFilter;
     }
 }

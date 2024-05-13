@@ -77,6 +77,8 @@
             Ponisti.FlatStyle = FlatStyle.Flat;
             Ponisti.Font = new Font("Gabriola", 13.8F, FontStyle.Bold);
             Ponisti.Location = new Point(466, 739);
+            Ponisti.MaximumSize = new Size(124, 51);
+            Ponisti.MinimumSize = new Size(124, 51);
             Ponisti.Name = "Ponisti";
             Ponisti.Size = new Size(124, 51);
             Ponisti.TabIndex = 2;
@@ -168,7 +170,7 @@
             // 
             Kategorija.Font = new Font("Gabriola", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             Kategorija.FormattingEnabled = true;
-            Kategorija.Items.AddRange(new object[] { "Gitare", "Klaviri i pianina", "Harmonike", "Električne klavijature", "Violine", "Viole", "Violončela", "Kontrabasi", "Saksofoni", "Flaute", "Klarineti", "Tromboni", "Žice za gitare", "Koferi i torbe za gitare", "Koferi i torbe za pianina", "Koferi i torbe za harmonike" });
+            Kategorija.Items.AddRange(new object[] { "Akustične gitare", "Električne gitare", "Klasične gitare", "Bas gitare", "Klaviri i pianina", "Harmonike", "Električne klavijature", "Violine", "Viole", "Violončela", "Kontrabasi", "Saksofoni", "Flaute", "Klarineti", "Tromboni", "Žice za gitare", "Koferi i torbe za gitare", "Koferi i torbe za pianina", "Koferi i torbe za harmonike" });
             Kategorija.Location = new Point(163, 146);
             Kategorija.Name = "Kategorija";
             Kategorija.Size = new Size(336, 50);
