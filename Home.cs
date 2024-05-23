@@ -24,7 +24,7 @@ namespace MusicShop
 
         private void prijava_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            Login login = new();
             this.Close();
             login.Show();
         }
@@ -51,69 +51,67 @@ namespace MusicShop
         {
             try
             {
-                // povlači sve iz baze
-                // tu dodati uvijet ako smo u kategoriji
                 mySqlConnection = new(mySqlCon);
-                mySqlConnection.Open();
-                string query = "SELECT instrument_image, instrument_name, instrument_price FROM instruments";
-                using (MySqlCommand command = new(query, mySqlConnection))
+                using (mySqlConnection)
                 {
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    mySqlConnection.Open();
+                    string query = "SELECT instrument_image, instrument_name, instrument_price FROM instruments";
+                    MySqlCommand command = new(query, mySqlConnection);
+                    using (command)
                     {
-                        while (reader.Read())
+                        MySqlDataReader reader = command.ExecuteReader();
+                        using (reader)
                         {
-                            // Izvlačenje podataka iz baze
-                            string instrumentName = reader.GetString("instrument_name");
-                            double instrumentPrice = reader.GetDouble("instrument_price");
+                            while (reader.Read())
+                            {
+                                string instrumentName = reader.GetString("instrument_name");
+                                double instrumentPrice = reader.GetDouble("instrument_price");
 
-                            byte[] imageData = (byte[])reader["instrument_image"];
-                            MemoryStream memory = new(imageData);
-                            Image image = Image.FromStream(memory);
+                                byte[] imageData = (byte[])reader["instrument_image"];
+                                MemoryStream memory = new(imageData);
+                                Image image = Image.FromStream(memory);
 
-                            PictureBox pic = new();
-                            pic.Image = image;
-                            pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                            pic.Dock = DockStyle.Fill;
-                            //table layout panel
-                            TableLayoutPanel tableForPicture = new();
-                            tableForPicture.RowCount = 3;
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 10));
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 76));
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 14));
-                            tableForPicture.Height = 430;
-                            tableForPicture.Width = 350;
-                            tableForPicture.BackColor = Color.Peru;
-                            tableForPicture.Margin = new Padding(0, 0, 40, 30);
-                            // dodavanje slike u drugi redak
-                            tableForPicture.Controls.Add(pic, 0, 1);
+                                PictureBox pic = new();
+                                pic.Image = image;
+                                pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                                pic.Dock = DockStyle.Fill;
+                                //table layout panel
+                                TableLayoutPanel tableForPicture = new();
+                                tableForPicture.RowCount = 3;
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 10));
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 76));
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 14));
+                                tableForPicture.Height = 430;
+                                tableForPicture.Width = 350;
+                                tableForPicture.BackColor = Color.Peru;
+                                tableForPicture.Margin = new Padding(0, 0, 40, 30);
+                                // dodavanje slike u drugi redak
+                                tableForPicture.Controls.Add(pic, 0, 1);
 
-                            Label name = new();
-                            name.Text = reader["instrument_name"].ToString();
-                            name.Dock = DockStyle.Fill;
-                            name.TextAlign = ContentAlignment.MiddleCenter;
-                            name.Font = new Font("Gabriola", 16, FontStyle.Bold);
-                            // dodavanje naziva instrumenta u prvi redak
-                            tableForPicture.Controls.Add(name, 0, 0);
+                                Label name = new();
+                                name.Text = reader["instrument_name"].ToString();
+                                name.Dock = DockStyle.Fill;
+                                name.TextAlign = ContentAlignment.MiddleCenter;
+                                name.Font = new Font("Gabriola", 16, FontStyle.Bold);
+                                // dodavanje naziva instrumenta u prvi redak
+                                tableForPicture.Controls.Add(name, 0, 0);
 
-                            //FlowLayoutPanel buttonPanel = new();
-                            //buttonPanel.Dock = DockStyle.Fill;
-                            //buttonPanel.FlowDirection = FlowDirection.LeftToRight; // Postavljanje smjera na desno
-                            //tableForPicture.Controls.Add(buttonPanel, 0, 2);
+                                Label price = new();
+                                price.Text = reader["instrument_price"].ToString() + " €";
+                                price.Width = 340;
+                                price.Height = 50;
+                                price.TextAlign = ContentAlignment.MiddleCenter;
+                                price.ForeColor = Color.GreenYellow;
+                                price.Font = new Font("Gabriola", 18, FontStyle.Bold);
+                                tableForPicture.Controls.Add(price);
 
-                            Label price = new();
-                            price.Text = reader["instrument_price"].ToString() + " €";
-                            price.Width = 340;
-                            price.Height = 50;
-                            price.TextAlign = ContentAlignment.MiddleCenter;
-                            price.ForeColor = Color.GreenYellow;
-                            price.Font = new Font("Gabriola", 18, FontStyle.Bold);
-                            tableForPicture.Controls.Add(price);
-
-                            // stavljamo na panel
-                            InstrumentiPanel.AutoScroll = true;
-                            InstrumentiPanel.Controls.Add(tableForPicture);
+                                // stavljamo na panel
+                                InstrumentiPanel.AutoScroll = true;
+                                InstrumentiPanel.Controls.Add(tableForPicture);
+                            }
                         }
                     }
+
                 }
             }
             catch (Exception ex)
@@ -188,12 +186,6 @@ namespace MusicShop
                         tableForPicture.BackColor = Color.Peru;
                         tableForPicture.Margin = new Padding(0, 0, 40, 30);
 
-                        // za cijenu i button kupi
-                        FlowLayoutPanel buttonPanel = new();
-                        buttonPanel.Dock = DockStyle.Fill;
-                        buttonPanel.FlowDirection = FlowDirection.LeftToRight;
-                        tableForPicture.Controls.Add(buttonPanel, 0, 2);
-
                         string instrumentName = reader.GetString("instrument_name");
                         double instrumentPrice = reader.GetDouble("instrument_price");
 
@@ -215,19 +207,12 @@ namespace MusicShop
 
                         Label price = new();
                         price.Text = reader["instrument_price"].ToString() + " €";
-                        price.TextAlign = ContentAlignment.TopCenter;
-                        price.Width = 205;
+                        price.Width = 340;
                         price.Height = 50;
+                        price.TextAlign = ContentAlignment.MiddleCenter;
                         price.ForeColor = Color.GreenYellow;
                         price.Font = new Font("Gabriola", 18, FontStyle.Bold);
-                        buttonPanel.Controls.Add(price);
-
-                        Button buy = new();
-                        buy.Text = "KUPI";
-                        buy.Font = new Font("Gabriola", 11, FontStyle.Bold);
-                        buy.Size = new Size(120, 50);
-                        buy.BackColor = Color.Bisque;
-                        buttonPanel.Controls.Add(buy);
+                        tableForPicture.Controls.Add(price);
 
                         // stavljamo na panel
                         InstrumentiPanel.AutoScroll = true;
@@ -255,73 +240,64 @@ namespace MusicShop
                 }
                 else
                 {
-                    mySqlConnection = new MySqlConnection(mySqlCon);
-                    mySqlConnection.Open();
-                    string query = "select instrument_image, instrument_name, instrument_price from instruments where instrument_category = @category";
-                    MySqlCommand command = new(query, mySqlConnection);
-                    command.Parameters.AddWithValue("@category", selectedCategory);
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    mySqlConnection = new(mySqlCon);
+                    using (mySqlConnection)
                     {
-                        while (reader.Read())
+                        mySqlConnection.Open();
+                        string query = "SELECT instrument_image, instrument_name, instrument_price FROM instruments WHERE instrument_category = @category";
+                        MySqlCommand command = new(query, mySqlConnection);
+                        command.Parameters.AddWithValue("@category", selectedCategory);
+                        MySqlDataReader reader = command.ExecuteReader();
+                        using (reader)
                         {
-                            TableLayoutPanel tableForPicture = new();
-                            tableForPicture.RowCount = 3;
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 10));
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 76));
-                            tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 14));
-                            tableForPicture.Height = 430;
-                            tableForPicture.Width = 350;
-                            tableForPicture.BackColor = Color.Peru;
-                            tableForPicture.Margin = new Padding(0, 0, 40, 30);
+                            while (reader.Read())
+                            {
+                                TableLayoutPanel tableForPicture = new();
+                                tableForPicture.RowCount = 3;
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 10));
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 76));
+                                tableForPicture.RowStyles.Add(new RowStyle(SizeType.Percent, 14));
+                                tableForPicture.Height = 430;
+                                tableForPicture.Width = 350;
+                                tableForPicture.BackColor = Color.Peru;
+                                tableForPicture.Margin = new Padding(0, 0, 40, 30);
 
-                            // za cijenu i button kupi
-                            FlowLayoutPanel buttonPanel = new();
-                            buttonPanel.Dock = DockStyle.Fill;
-                            buttonPanel.FlowDirection = FlowDirection.LeftToRight;
-                            tableForPicture.Controls.Add(buttonPanel, 0, 2);
+                                string instrumentName = reader.GetString("instrument_name");
+                                double instrumentPrice = reader.GetDouble("instrument_price");
 
-                            string instrumentName = reader.GetString("instrument_name");
-                            double instrumentPrice = reader.GetDouble("instrument_price");
+                                PictureBox pic = new PictureBox();
+                                byte[] imageData = (byte[])reader["instrument_image"];
+                                MemoryStream memory = new(imageData);
+                                Image image = Image.FromStream(memory);
+                                pic.Image = image;
+                                pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                                pic.Dock = DockStyle.Fill;
+                                tableForPicture.Controls.Add(pic, 0, 1);
 
-                            PictureBox pic = new PictureBox();
-                            byte[] imageData = (byte[])reader["instrument_image"];
-                            MemoryStream memory = new(imageData);
-                            Image image = Image.FromStream(memory);
-                            pic.Image = image;
-                            pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                            pic.Dock = DockStyle.Fill;
-                            tableForPicture.Controls.Add(pic, 0, 1);
+                                Label name = new();
+                                name.Text = reader["instrument_name"].ToString();
+                                name.Dock = DockStyle.Fill;
+                                name.TextAlign = ContentAlignment.MiddleCenter;
+                                name.Font = new Font("Gabriola", 16, FontStyle.Bold);
+                                tableForPicture.Controls.Add(name, 0, 0);
 
-                            Label name = new();
-                            name.Text = reader["instrument_name"].ToString();
-                            name.Dock = DockStyle.Fill;
-                            name.TextAlign = ContentAlignment.MiddleCenter;
-                            name.Font = new Font("Gabriola", 16, FontStyle.Bold);
-                            tableForPicture.Controls.Add(name, 0, 0);
+                                Label price = new();
+                                price.Text = reader["instrument_price"].ToString() + " €";
+                                price.Width = 340;
+                                price.Height = 50;
+                                price.TextAlign = ContentAlignment.MiddleCenter;
+                                price.ForeColor = Color.GreenYellow;
+                                price.Font = new Font("Gabriola", 18, FontStyle.Bold);
+                                tableForPicture.Controls.Add(price);
 
-                            Label price = new();
-                            price.Text = reader["instrument_price"].ToString() + " €";
-                            price.TextAlign = ContentAlignment.TopCenter;
-                            price.Width = 205;
-                            price.Height = 50;
-                            price.ForeColor = Color.GreenYellow;
-                            price.Font = new Font("Gabriola", 18, FontStyle.Bold);
-                            buttonPanel.Controls.Add(price);
-
-                            Button buy = new();
-                            buy.Text = "KUPI";
-                            buy.Font = new Font("Gabriola", 11, FontStyle.Bold);
-                            buy.Size = new Size(120, 50);
-                            buy.BackColor = Color.Bisque;
-                            buttonPanel.Controls.Add(buy);
-
-                            // stavljamo na panel
-                            InstrumentiPanel.AutoScroll = true;
-                            InstrumentiPanel.Controls.Add(tableForPicture);
+                                // stavljamo na panel
+                                InstrumentiPanel.AutoScroll = true;
+                                InstrumentiPanel.Controls.Add(tableForPicture);
+                            }
                         }
+                        Filter.Text = "Sortiraj po cijeni";
+                        mySqlConnection.Close();
                     }
-                    Filter.Text = "Sortiraj po cijeni";
-                    mySqlConnection.Close();
                 }
             }
             catch (Exception ex)

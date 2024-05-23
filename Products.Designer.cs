@@ -110,6 +110,7 @@
             PopisProizvoda.RowHeadersWidth = 51;
             PopisProizvoda.Size = new Size(778, 574);
             PopisProizvoda.TabIndex = 5;
+            PopisProizvoda.CellContentClick += PopisProizvoda_CellContentClick;
             // 
             // Products
             // 

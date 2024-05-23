@@ -115,5 +115,10 @@ namespace MusicShop
                 MessageBox.Show("Odaberite proizvod koji želite urediti");
             }
         }
+
+        private void PopisProizvoda_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

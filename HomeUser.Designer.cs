@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode61 = new TreeNode("Akustične gitare");
-            TreeNode treeNode62 = new TreeNode("Klasične gitare");
-            TreeNode treeNode63 = new TreeNode("Električne gitare");
-            TreeNode treeNode64 = new TreeNode("Bas gitare");
-            TreeNode treeNode65 = new TreeNode("Mandoline");
-            TreeNode treeNode66 = new TreeNode("Banjo");
-            TreeNode treeNode67 = new TreeNode("Ukulele");
-            TreeNode treeNode68 = new TreeNode("Ostali žičani instrumenti", new TreeNode[] { treeNode65, treeNode66, treeNode67 });
-            TreeNode treeNode69 = new TreeNode("Gitare", new TreeNode[] { treeNode61, treeNode62, treeNode63, treeNode64, treeNode68 });
-            TreeNode treeNode70 = new TreeNode("Klaviri i pianina");
-            TreeNode treeNode71 = new TreeNode("Harmonike");
-            TreeNode treeNode72 = new TreeNode("Električne klavijature");
-            TreeNode treeNode73 = new TreeNode("Instrumenti s tipkama", new TreeNode[] { treeNode70, treeNode71, treeNode72 });
-            TreeNode treeNode74 = new TreeNode("Violine");
-            TreeNode treeNode75 = new TreeNode("Viole");
-            TreeNode treeNode76 = new TreeNode("Violončela");
-            TreeNode treeNode77 = new TreeNode("Kontrabasi");
-            TreeNode treeNode78 = new TreeNode("Gudaći instrumenti", new TreeNode[] { treeNode74, treeNode75, treeNode76, treeNode77 });
-            TreeNode treeNode79 = new TreeNode("Saksofoni");
-            TreeNode treeNode80 = new TreeNode("Flaute");
-            TreeNode treeNode81 = new TreeNode("Klarineti");
-            TreeNode treeNode82 = new TreeNode("Tromboni");
-            TreeNode treeNode83 = new TreeNode("Puhači instrumenti", new TreeNode[] { treeNode79, treeNode80, treeNode81, treeNode82 });
-            TreeNode treeNode84 = new TreeNode("Instrumenti", new TreeNode[] { treeNode69, treeNode73, treeNode78, treeNode83 });
-            TreeNode treeNode85 = new TreeNode("Žice za gitare");
-            TreeNode treeNode86 = new TreeNode("Koferi i torbe za gitare");
-            TreeNode treeNode87 = new TreeNode("Koferi i torbe za klavijature");
-            TreeNode treeNode88 = new TreeNode("Koferi i torbe za harmonike");
-            TreeNode treeNode89 = new TreeNode("Razna oprema", new TreeNode[] { treeNode85, treeNode86, treeNode87, treeNode88 });
-            TreeNode treeNode90 = new TreeNode("Svi proizvodi");
+            TreeNode treeNode1 = new TreeNode("Akustične gitare");
+            TreeNode treeNode2 = new TreeNode("Klasične gitare");
+            TreeNode treeNode3 = new TreeNode("Električne gitare");
+            TreeNode treeNode4 = new TreeNode("Bas gitare");
+            TreeNode treeNode5 = new TreeNode("Mandoline");
+            TreeNode treeNode6 = new TreeNode("Banjo");
+            TreeNode treeNode7 = new TreeNode("Ukulele");
+            TreeNode treeNode8 = new TreeNode("Ostali žičani instrumenti", new TreeNode[] { treeNode5, treeNode6, treeNode7 });
+            TreeNode treeNode9 = new TreeNode("Gitare", new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4, treeNode8 });
+            TreeNode treeNode10 = new TreeNode("Klaviri i pianina");
+            TreeNode treeNode11 = new TreeNode("Harmonike");
+            TreeNode treeNode12 = new TreeNode("Električne klavijature");
+            TreeNode treeNode13 = new TreeNode("Instrumenti s tipkama", new TreeNode[] { treeNode10, treeNode11, treeNode12 });
+            TreeNode treeNode14 = new TreeNode("Violine");
+            TreeNode treeNode15 = new TreeNode("Viole");
+            TreeNode treeNode16 = new TreeNode("Violončela");
+            TreeNode treeNode17 = new TreeNode("Kontrabasi");
+            TreeNode treeNode18 = new TreeNode("Gudaći instrumenti", new TreeNode[] { treeNode14, treeNode15, treeNode16, treeNode17 });
+            TreeNode treeNode19 = new TreeNode("Saksofoni");
+            TreeNode treeNode20 = new TreeNode("Flaute");
+            TreeNode treeNode21 = new TreeNode("Klarineti");
+            TreeNode treeNode22 = new TreeNode("Tromboni");
+            TreeNode treeNode23 = new TreeNode("Puhači instrumenti", new TreeNode[] { treeNode19, treeNode20, treeNode21, treeNode22 });
+            TreeNode treeNode24 = new TreeNode("Instrumenti", new TreeNode[] { treeNode9, treeNode13, treeNode18, treeNode23 });
+            TreeNode treeNode25 = new TreeNode("Žice za gitare");
+            TreeNode treeNode26 = new TreeNode("Koferi i torbe za gitare");
+            TreeNode treeNode27 = new TreeNode("Koferi i torbe za klavijature");
+            TreeNode treeNode28 = new TreeNode("Koferi i torbe za harmonike");
+            TreeNode treeNode29 = new TreeNode("Razna oprema", new TreeNode[] { treeNode25, treeNode26, treeNode27, treeNode28 });
+            TreeNode treeNode30 = new TreeNode("Svi proizvodi");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeUser));
             label1 = new Label();
             treeView1 = new TreeView();
@@ -76,11 +76,12 @@
             Dropdown = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            Kosarica = new PictureBox();
             iznos_novcanika = new Label();
             UkloniFilter = new Button();
             Filter = new ComboBox();
             InstrumentiPanel = new FlowLayoutPanel();
+            StavkeKosarice = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -91,7 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)Down).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Kosarica).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -113,67 +114,67 @@
             treeView1.Font = new Font("Gabriola", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
             treeView1.Location = new Point(21, 180);
             treeView1.Name = "treeView1";
-            treeNode61.Name = "akusticne";
-            treeNode61.Text = "Akustične gitare";
-            treeNode62.Name = "klasicne";
-            treeNode62.Text = "Klasične gitare";
-            treeNode63.Name = "elektricne";
-            treeNode63.Text = "Električne gitare";
-            treeNode64.Name = "bas";
-            treeNode64.Text = "Bas gitare";
-            treeNode65.Name = "mandoline";
-            treeNode65.Text = "Mandoline";
-            treeNode66.Name = "banjo";
-            treeNode66.Text = "Banjo";
-            treeNode67.Name = "ukulele";
-            treeNode67.Text = "Ukulele";
-            treeNode68.Name = "ostalo_zicani";
-            treeNode68.Text = "Ostali žičani instrumenti";
-            treeNode69.Name = "gitare";
-            treeNode69.Text = "Gitare";
-            treeNode70.Name = "klaviri_pianina";
-            treeNode70.Text = "Klaviri i pianina";
-            treeNode71.Name = "harmonike";
-            treeNode71.Text = "Harmonike";
-            treeNode72.Name = "elektricne_klavijature";
-            treeNode72.Text = "Električne klavijature";
-            treeNode73.Name = "instrumenti_tipke";
-            treeNode73.Text = "Instrumenti s tipkama";
-            treeNode74.Name = "violine";
-            treeNode74.Text = "Violine";
-            treeNode75.Name = "viole";
-            treeNode75.Text = "Viole";
-            treeNode76.Name = "violoncela";
-            treeNode76.Text = "Violončela";
-            treeNode77.Name = "kontrabasi";
-            treeNode77.Text = "Kontrabasi";
-            treeNode78.Name = "gudaci";
-            treeNode78.Text = "Gudaći instrumenti";
-            treeNode79.Name = "saksofoni";
-            treeNode79.Text = "Saksofoni";
-            treeNode80.Name = "flaute";
-            treeNode80.Text = "Flaute";
-            treeNode81.Name = "klarineti";
-            treeNode81.Text = "Klarineti";
-            treeNode82.Name = "tromboni";
-            treeNode82.Text = "Tromboni";
-            treeNode83.Name = "puhaci";
-            treeNode83.Text = "Puhači instrumenti";
-            treeNode84.Name = "instrumenti";
-            treeNode84.Text = "Instrumenti";
-            treeNode85.Name = "zice";
-            treeNode85.Text = "Žice za gitare";
-            treeNode86.Name = "koferi_torbe_gitare";
-            treeNode86.Text = "Koferi i torbe za gitare";
-            treeNode87.Name = "koferi_torbe_klavijature";
-            treeNode87.Text = "Koferi i torbe za klavijature";
-            treeNode88.Name = "koferi_torbe_harmonike";
-            treeNode88.Text = "Koferi i torbe za harmonike";
-            treeNode89.Name = "razna_oprema";
-            treeNode89.Text = "Razna oprema";
-            treeNode90.Name = "SviProizvodi";
-            treeNode90.Text = "Svi proizvodi";
-            treeView1.Nodes.AddRange(new TreeNode[] { treeNode84, treeNode89, treeNode90 });
+            treeNode1.Name = "akusticne";
+            treeNode1.Text = "Akustične gitare";
+            treeNode2.Name = "klasicne";
+            treeNode2.Text = "Klasične gitare";
+            treeNode3.Name = "elektricne";
+            treeNode3.Text = "Električne gitare";
+            treeNode4.Name = "bas";
+            treeNode4.Text = "Bas gitare";
+            treeNode5.Name = "mandoline";
+            treeNode5.Text = "Mandoline";
+            treeNode6.Name = "banjo";
+            treeNode6.Text = "Banjo";
+            treeNode7.Name = "ukulele";
+            treeNode7.Text = "Ukulele";
+            treeNode8.Name = "ostalo_zicani";
+            treeNode8.Text = "Ostali žičani instrumenti";
+            treeNode9.Name = "gitare";
+            treeNode9.Text = "Gitare";
+            treeNode10.Name = "klaviri_pianina";
+            treeNode10.Text = "Klaviri i pianina";
+            treeNode11.Name = "harmonike";
+            treeNode11.Text = "Harmonike";
+            treeNode12.Name = "elektricne_klavijature";
+            treeNode12.Text = "Električne klavijature";
+            treeNode13.Name = "instrumenti_tipke";
+            treeNode13.Text = "Instrumenti s tipkama";
+            treeNode14.Name = "violine";
+            treeNode14.Text = "Violine";
+            treeNode15.Name = "viole";
+            treeNode15.Text = "Viole";
+            treeNode16.Name = "violoncela";
+            treeNode16.Text = "Violončela";
+            treeNode17.Name = "kontrabasi";
+            treeNode17.Text = "Kontrabasi";
+            treeNode18.Name = "gudaci";
+            treeNode18.Text = "Gudaći instrumenti";
+            treeNode19.Name = "saksofoni";
+            treeNode19.Text = "Saksofoni";
+            treeNode20.Name = "flaute";
+            treeNode20.Text = "Flaute";
+            treeNode21.Name = "klarineti";
+            treeNode21.Text = "Klarineti";
+            treeNode22.Name = "tromboni";
+            treeNode22.Text = "Tromboni";
+            treeNode23.Name = "puhaci";
+            treeNode23.Text = "Puhači instrumenti";
+            treeNode24.Name = "instrumenti";
+            treeNode24.Text = "Instrumenti";
+            treeNode25.Name = "zice";
+            treeNode25.Text = "Žice za gitare";
+            treeNode26.Name = "koferi_torbe_gitare";
+            treeNode26.Text = "Koferi i torbe za gitare";
+            treeNode27.Name = "koferi_torbe_klavijature";
+            treeNode27.Text = "Koferi i torbe za klavijature";
+            treeNode28.Name = "koferi_torbe_harmonike";
+            treeNode28.Text = "Koferi i torbe za harmonike";
+            treeNode29.Name = "razna_oprema";
+            treeNode29.Text = "Razna oprema";
+            treeNode30.Name = "SviProizvodi";
+            treeNode30.Text = "Svi proizvodi";
+            treeView1.Nodes.AddRange(new TreeNode[] { treeNode24, treeNode29, treeNode30 });
             treeView1.ShowLines = false;
             treeView1.Size = new Size(331, 536);
             treeView1.TabIndex = 4;
@@ -231,6 +232,7 @@
             ProsleKupnje.TabIndex = 6;
             ProsleKupnje.Text = "Prošle kupnje";
             ProsleKupnje.UseVisualStyleBackColor = true;
+            ProsleKupnje.Click += ProsleKupnje_Click_1;
             // 
             // panel3
             // 
@@ -335,7 +337,7 @@
             flowLayoutPanel1.MaximumSize = new Size(250, 325);
             flowLayoutPanel1.MinimumSize = new Size(249, 60);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(249, 60);
+            flowLayoutPanel1.Size = new Size(249, 325);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // pictureBox2
@@ -350,17 +352,18 @@
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox3
+            // Kosarica
             // 
-            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox3.BackColor = Color.Sienna;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(1135, 23);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(30, 30);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
+            Kosarica.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Kosarica.BackColor = Color.Sienna;
+            Kosarica.Image = (Image)resources.GetObject("Kosarica.Image");
+            Kosarica.Location = new Point(1135, 23);
+            Kosarica.Name = "Kosarica";
+            Kosarica.Size = new Size(30, 30);
+            Kosarica.SizeMode = PictureBoxSizeMode.StretchImage;
+            Kosarica.TabIndex = 8;
+            Kosarica.TabStop = false;
+            Kosarica.Click += Kosarica_Click;
             // 
             // iznos_novcanika
             // 
@@ -407,19 +410,31 @@
             InstrumentiPanel.TabIndex = 33;
             InstrumentiPanel.Paint += InstrumentiPanel_Paint;
             // 
+            // StavkeKosarice
+            // 
+            StavkeKosarice.BackColor = Color.Bisque;
+            StavkeKosarice.FlowDirection = FlowDirection.RightToLeft;
+            StavkeKosarice.Location = new Point(891, 74);
+            StavkeKosarice.Margin = new Padding(0);
+            StavkeKosarice.MaximumSize = new Size(300, 400);
+            StavkeKosarice.Name = "StavkeKosarice";
+            StavkeKosarice.Size = new Size(300, 400);
+            StavkeKosarice.TabIndex = 36;
+            // 
             // HomeUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 750);
             ControlBox = false;
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(StavkeKosarice);
             Controls.Add(UkloniFilter);
             Controls.Add(Filter);
             Controls.Add(InstrumentiPanel);
             Controls.Add(iznos_novcanika);
-            Controls.Add(pictureBox3);
+            Controls.Add(Kosarica);
             Controls.Add(pictureBox2);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(treeView1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -441,7 +456,7 @@
             ((System.ComponentModel.ISupportInitialize)Down).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Kosarica).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -463,11 +478,12 @@
         private Button Dropdown;
         private FlowLayoutPanel flowLayoutPanel1;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox Kosarica;
         private PictureBox pictureBox4;
         private Label iznos_novcanika;
         private Button UkloniFilter;
         private ComboBox Filter;
         private FlowLayoutPanel InstrumentiPanel;
+        private FlowLayoutPanel StavkeKosarice;
     }
 }

@@ -16,7 +16,8 @@ namespace MusicShop
         private readonly string loggedInUserUsername;
         private readonly string loggedInUserFirstName;
         private readonly string mySqlCon = "server=127.0.0.1; user=root; database=musicShop; password=;";
-        public WalletUser(string loggedInUserFirstName, string loggedInUserUsername)
+        MySqlConnection mySqlConnection;
+        public WalletUser(string loggedInUserUsername, string loggedInUserFirstName)
         {
             this.loggedInUserUsername = loggedInUserUsername;
             this.loggedInUserFirstName = loggedInUserFirstName;
@@ -27,23 +28,26 @@ namespace MusicShop
         {
             try
             {
-                // Vuci stanje novcanika iz baze
-                using MySqlConnection mySqlConnection = new(mySqlCon);
-
-                mySqlConnection.Open();
-                string query = "SELECT wallet FROM users WHERE username = @username";
-                using MySqlCommand command = new(query, mySqlConnection);
-                command.Parameters.AddWithValue("@username", loggedInUserUsername);
-                object result = command.ExecuteScalar();
-                if (result != null)
+                mySqlConnection = new(mySqlCon);
+                using(mySqlConnection)
                 {
-                    TrenutniIznos.Text = result.ToString();
+                    mySqlConnection.Open();
+                    string query = "SELECT wallet FROM users WHERE username = @username";
+                    MySqlCommand command = new(query, mySqlConnection);
+                    using(command)
+                    {
+                        command.Parameters.AddWithValue("@username", loggedInUserUsername);
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            TrenutniIznos.Text = result.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Korisnik nije pronađen.");
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Korisnik nije pronađen.");
-                }
-                mySqlConnection.Close();
             }
             catch (Exception ex)
             {
@@ -90,7 +94,7 @@ namespace MusicShop
                     {
                         MessageBox.Show("Stanje novčanika je uspješno ažurirano.");
                         TrenutniIznos.Text = ukupni_iznos.ToString();
-                        HomeUser home = new(loggedInUserFirstName, loggedInUserUsername);
+                        HomeUser home = new(loggedInUserUsername, loggedInUserFirstName);
                         home.Show();
                         this.Hide();
                     }
@@ -116,7 +120,7 @@ namespace MusicShop
 
         private void Ponisti_Click(object sender, EventArgs e)
         {
-            HomeUser home = new(loggedInUserFirstName, loggedInUserUsername);
+            HomeUser home = new(loggedInUserUsername, loggedInUserFirstName);
             home.Show();
             this.Hide();
         }
